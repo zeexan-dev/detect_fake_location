@@ -113,8 +113,8 @@ class MyHomePage extends StatelessWidget {
 
 ```
 
-![Image 1](images/image1.PNG)
-![Image 2](images/image2.PNG)
+![Image 1](https://user-images.githubusercontent.com/6541601/230794507-3ebf98ff-6cb5-4fae-b713-b1ab4e425308.PNG)
+![Image 2](https://user-images.githubusercontent.com/6541601/230794510-159d7dbc-d762-45fc-8b08-6fcfb293a458.PNG)
 
 ## Limitations
 For Android, the plugin uses the isMockLocationEnabled method to detect if the user is using a fake location. This method requires the ACCESS_MOCK_LOCATION permission, which may not be granted on some devices. In this case, the method will return false.
