@@ -1,6 +1,6 @@
 name: detect_fake_location
 description: "A Flutter plugin for detecting if location is being simulated or faked"
-version: 0.0.2
+version: 1.0.1
 homepage: https://github.com/zeexan-dev/detect_fake_location
 
 environment:
@@ -11,7 +11,7 @@ dependencies:
   flutter:
     sdk: flutter
   plugin_platform_interface: ^2.0.2
-  permission_handler: ^10.2.0
+  permission_handler: ^11.0.1
 
 dev_dependencies:
   flutter_test:

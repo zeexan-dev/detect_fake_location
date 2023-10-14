@@ -1,7 +1,13 @@
-## 0.0.1
+## 1.0.0
 
-* Fake(Mock or Simulated) location detection
+* Update
 
 ## 0.0.2
 
 * Documentation update
+
+## 0.0.1
+
+* Fake(Mock or Simulated) location detection
+
+

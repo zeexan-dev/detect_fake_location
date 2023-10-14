@@ -2,7 +2,7 @@ PODS:
   - detect_fake_location (0.0.1):
     - Flutter
   - Flutter (1.0.0)
-  - permission_handler_apple (9.0.4):
+  - permission_handler_apple (9.1.1):
     - Flutter
 
 DEPENDENCIES:
@@ -21,7 +21,7 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   detect_fake_location: 67ba415c979cabbb79db9b34327073b77326027b
   Flutter: f04841e97a9d0b0a8025694d0796dd46242b2854
-  permission_handler_apple: 44366e37eaf29454a1e7b1b7d736c2cceaeb17ce
+  permission_handler_apple: e76247795d700c14ea09e3a2d8855d41ee80a2e6
 
 PODFILE CHECKSUM: fb2fc760c9002bd497a369de164627d43cbc883f
 
