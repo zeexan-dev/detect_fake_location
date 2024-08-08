@@ -10,14 +10,14 @@ To use this plugin, add detect_fake_location as a dependency in your pubspec.yam
 
 ### iOS
 Add the following entries to your Info.plist file
-```
+```xml
 <key>NSLocationAlwaysUsageDescription</key>
 <string>App needs access to location when in the background.</string>
 <key>NSLocationWhenInUseUsageDescription</key>
 <string>App requires access to location when open.</string>
 ```
 Add the following to your Podfile
-```
+```pod
 post_install do |installer|
   installer.pods_project.targets.each do |target|
     flutter_additional_ios_build_settings(target)
@@ -35,7 +35,7 @@ end
 
 ### Android
 Add the ACCESS_COARSE_LOCATION, ACCESS_FINE_LOCATION and ACCESS_MOCK_LOCATION permission to your Android Manifest.
-```
+```xml
 <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 <uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION" />
@@ -44,18 +44,18 @@ Add the ACCESS_COARSE_LOCATION, ACCESS_FINE_LOCATION and ACCESS_MOCK_LOCATION pe
 ## Usage
 Import the package with:
 
-```
+```dart
 import 'package:detect_fake_location/detect_fake_location.dart';
 ```
 
 Then you can use the following method to check if the user is using a fake location:
 
-```
+```dart
 bool isFakeLocation = await DetectFakeLocation().detectFakeLocation();
 ```
 
 ## Example
-```
+```dart
 import 'package:flutter/material.dart';
 import 'package:detect_fake_location/detect_fake_location.dart';
 
