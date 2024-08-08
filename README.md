@@ -2,6 +2,10 @@
 
 This is a Flutter plugin that detects if the user is using a fake(mock or simulated) location on their device.
 
+[![Pub](https://img.shields.io/pub/v/detect_fake_location.svg)]((https://pub.dev/packages/detect_fake_location))
+[![License](https://img.shields.io/badge/licence-BSD3-blue.svg)](https://github.com/sarbagyastha/flutter_rating_bar/blob/master/LICENSE)
+[![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/zeexan-dev/detect_fake_location.svg)](https://github.com/zeexan-dev/detect_fake_location)
+
 ## Installation
 
 To use this plugin, add detect_fake_location as a dependency in your pubspec.yaml file.
