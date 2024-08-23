@@ -13,6 +13,8 @@ import android.os.Build
 import android.provider.Settings
 import android.app.AppOpsManager
 import android.os.Process
+import android.location.Location
+import android.location.LocationManager
 
 
 /** DetectFakeLocationPlugin */
@@ -42,7 +44,19 @@ class DetectFakeLocationPlugin: FlutterPlugin, MethodCallHandler {
 
   fun isMockLocationEnabled(context: Context): Boolean {
     var isMockLocation = false
-    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+    val locationManager = context.getSystemService(Context.LOCATION_SERVICE) as LocationManager
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) { // API 31 and above
+        try {
+            val location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER)
+            if (location != null) {
+                // Detect if the location is mock
+                isMockLocation = location.isMock()
+            }
+        } catch (e: SecurityException) {
+            isMockLocation = false
+        }
+    }
+    else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) { // API 23 to 30
         // On Marshmallow or later, check if the app has the mock location permission
         val appOpsManager = context.getSystemService(Context.APP_OPS_SERVICE) as AppOpsManager
           try {

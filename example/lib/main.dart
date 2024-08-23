@@ -32,7 +32,7 @@ class MyHomePage extends StatelessWidget {
               context: context,
               builder: (BuildContext context) {
                 return AlertDialog(
-                  title: Text('Fake Location Detected'),
+                  title: Text('Fake Location Checked'),
                   content: Text(
                       'The user is${isFakeLocation ? '' : ' not'} using a fake location.'),
                   actions: <Widget>[
