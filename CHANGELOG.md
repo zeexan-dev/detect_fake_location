@@ -1,3 +1,7 @@
+## 2.1.0
+
+* Namespace issue fixed
+
 ## 2.0.0
 
 * Issue fixed for android 31 and above
