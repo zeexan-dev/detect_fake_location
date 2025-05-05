@@ -38,11 +38,10 @@ end
 ```
 
 ### Android
-Add the ACCESS_COARSE_LOCATION, ACCESS_FINE_LOCATION and ACCESS_MOCK_LOCATION permission to your Android Manifest.
+Add the ACCESS_COARSE_LOCATION and ACCESS_FINE_LOCATION permission to your Android Manifest.
 ```xml
 <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-<uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION" />
 ```
 
 ## Usage
@@ -121,8 +120,6 @@ class MyHomePage extends StatelessWidget {
 ![Image 2](https://user-images.githubusercontent.com/6541601/230794510-159d7dbc-d762-45fc-8b08-6fcfb293a458.PNG)
 
 ## Limitations
-For Android, the plugin uses the isMockLocationEnabled method to detect if the user is using a fake location. This method requires the ACCESS_MOCK_LOCATION permission, which may not be granted on some devices. In this case, the method will return false.
-
 For iOS, the plugin uses the CLLocationSourceInformation class to detect if the location is simulated by software or produced by an external accessory. This class is only available on iOS 15 or later.
 
 ## Contribute
