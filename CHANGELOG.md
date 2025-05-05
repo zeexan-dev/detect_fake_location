@@ -1,3 +1,6 @@
+## 2.2.0+1
+
+* Documentation updated
 ## 2.2.0
 
 * Issue fixed for android 31 and above
