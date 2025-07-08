@@ -1,7 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:detect_fake_location/detect_fake_location.dart';
 import 'package:detect_fake_location/detect_fake_location_platform_interface.dart';
-import 'package:detect_fake_location/detect_fake_location_method_channel.dart';
 import 'package:plugin_platform_interface/plugin_platform_interface.dart';
 
 /// Mock platform that simulates different fake location scenarios
