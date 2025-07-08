@@ -79,11 +79,14 @@ class _MyHomePageState extends State<MyHomePage> {
               child: Text('Detect Fake Location'),
               onPressed: () async {
                 bool isFakeLocation = await DetectFakeLocation()
-                    .detectFakeLocation(ignoreExternalAccessory: _ignoreExternalAccessory);
+                    .detectFakeLocation(
+                        ignoreExternalAccessory: _ignoreExternalAccessory);
                 _showResult(
                   'Fake Location Detection Result',
                   isFakeLocation,
-                  _ignoreExternalAccessory ? 'Ignoring External Accessory' : 'Checking All Sources',
+                  _ignoreExternalAccessory
+                      ? 'Ignoring External Accessory'
+                      : 'Checking All Sources',
                 );
               },
             ),

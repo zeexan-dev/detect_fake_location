@@ -5,7 +5,8 @@ import 'package:permission_handler/permission_handler.dart';
 class DetectFakeLocation {
   static const mothodChannel = MethodChannel('detect_fake_location');
 
-  Future<bool> detectFakeLocation({bool ignoreExternalAccessory = false}) async {
+  Future<bool> detectFakeLocation(
+      {bool ignoreExternalAccessory = false}) async {
     bool result = false;
     if (await Permission.location.isGranted) {
       result = await mothodChannel.invokeMethod('detectFakeLocation', {

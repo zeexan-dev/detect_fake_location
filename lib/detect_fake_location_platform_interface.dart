@@ -9,7 +9,7 @@ abstract class DetectFakeLocationPlatform extends PlatformInterface {
   static final Object _token = Object();
 
   static DetectFakeLocationPlatform _instance =
-  MethodChannelDetectFakeLocation();
+      MethodChannelDetectFakeLocation();
 
   /// The default instance of [DetectFakeLocationPlatform] to use.
   ///

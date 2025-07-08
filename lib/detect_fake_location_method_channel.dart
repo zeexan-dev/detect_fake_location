@@ -10,8 +10,10 @@ class MethodChannelDetectFakeLocation extends DetectFakeLocationPlatform {
   final methodChannel = const MethodChannel('detect_fake_location');
 
   @override
-  Future<bool?> detectFakeLocation({bool ignoreExternalAccessory = false}) async {
-    final version = await methodChannel.invokeMethod<bool>('detectFakeLocation', {
+  Future<bool?> detectFakeLocation(
+      {bool ignoreExternalAccessory = false}) async {
+    final version =
+        await methodChannel.invokeMethod<bool>('detectFakeLocation', {
       'ignoreExternalAccessory': ignoreExternalAccessory,
     });
     return version;

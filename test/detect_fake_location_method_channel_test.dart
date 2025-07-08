@@ -32,11 +32,13 @@ void main() {
   });
 
   test('detectFakeLocation with ignoreExternalAccessory false', () async {
-    expect(await platform.detectFakeLocation(ignoreExternalAccessory: false), false);
+    expect(await platform.detectFakeLocation(ignoreExternalAccessory: false),
+        false);
   });
 
   test('detectFakeLocation with ignoreExternalAccessory true', () async {
-    expect(await platform.detectFakeLocation(ignoreExternalAccessory: true), false);
+    expect(await platform.detectFakeLocation(ignoreExternalAccessory: true),
+        false);
   });
 
   test('detectFakeLocation method call arguments', () async {
@@ -48,7 +50,8 @@ void main() {
         methodCallReceived = true;
         // Safely cast the arguments
         if (methodCall.arguments is Map) {
-          receivedArguments = Map<String, dynamic>.from(methodCall.arguments as Map);
+          receivedArguments =
+              Map<String, dynamic>.from(methodCall.arguments as Map);
         }
       }
       return false;

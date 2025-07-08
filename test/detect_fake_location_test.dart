@@ -7,7 +7,8 @@ class MockDetectFakeLocationPlatform
     with MockPlatformInterfaceMixin
     implements DetectFakeLocationPlatform {
   @override
-  Future<bool?> detectFakeLocation({bool ignoreExternalAccessory = false}) => Future.value(false);
+  Future<bool?> detectFakeLocation({bool ignoreExternalAccessory = false}) =>
+      Future.value(false);
 }
 
 void main() {
@@ -22,7 +23,7 @@ void main() {
 
   test('detectFakeLocation with default parameters', () async {
     MockDetectFakeLocationPlatform fakePlatform =
-    MockDetectFakeLocationPlatform();
+        MockDetectFakeLocationPlatform();
     DetectFakeLocationPlatform.instance = fakePlatform;
 
     expect(await fakePlatform.detectFakeLocation(), false);
@@ -30,17 +31,20 @@ void main() {
 
   test('detectFakeLocation with ignoreExternalAccessory false', () async {
     MockDetectFakeLocationPlatform fakePlatform =
-    MockDetectFakeLocationPlatform();
+        MockDetectFakeLocationPlatform();
     DetectFakeLocationPlatform.instance = fakePlatform;
 
-    expect(await fakePlatform.detectFakeLocation(ignoreExternalAccessory: false), false);
+    expect(
+        await fakePlatform.detectFakeLocation(ignoreExternalAccessory: false),
+        false);
   });
 
   test('detectFakeLocation with ignoreExternalAccessory true', () async {
     MockDetectFakeLocationPlatform fakePlatform =
-    MockDetectFakeLocationPlatform();
+        MockDetectFakeLocationPlatform();
     DetectFakeLocationPlatform.instance = fakePlatform;
 
-    expect(await fakePlatform.detectFakeLocation(ignoreExternalAccessory: true), false);
+    expect(await fakePlatform.detectFakeLocation(ignoreExternalAccessory: true),
+        false);
   });
 }
