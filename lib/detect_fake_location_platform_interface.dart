@@ -9,7 +9,7 @@ abstract class DetectFakeLocationPlatform extends PlatformInterface {
   static final Object _token = Object();
 
   static DetectFakeLocationPlatform _instance =
-      MethodChannelDetectFakeLocation();
+  MethodChannelDetectFakeLocation();
 
   /// The default instance of [DetectFakeLocationPlatform] to use.
   ///
@@ -24,7 +24,7 @@ abstract class DetectFakeLocationPlatform extends PlatformInterface {
     _instance = instance;
   }
 
-  Future<bool?> detectFakeLocation() {
+  Future<bool?> detectFakeLocation({bool ignoreExternalAccessory = false}) {
     throw UnimplementedError('detectFakeLocation() has not been implemented.');
   }
 }

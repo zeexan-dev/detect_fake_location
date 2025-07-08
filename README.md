@@ -54,7 +54,30 @@ import 'package:detect_fake_location/detect_fake_location.dart';
 Then you can use the following method to check if the user is using a fake location:
 
 ```dart
+// Basic usage (default behavior)
 bool isFakeLocation = await DetectFakeLocation().detectFakeLocation();
+
+// Advanced usage with configuration options
+bool isFakeLocation = await DetectFakeLocation().detectFakeLocation(
+  ignoreExternalAccessory: true, // Ignore external accessories like CarPlay
+);
+```
+
+## Configuration Options
+
+### ignoreExternalAccessory (iOS only)
+
+By default, the plugin detects fake locations from both software simulation and external accessories. However, external accessories like CarPlay, external GPS devices, or other legitimate hardware can trigger false positives.
+
+- **Default:** `false` (maintains backward compatibility)
+- **When to use `true`:** If you want to ignore location data from external accessories and only detect software-based fake locations
+- **Use case:** Prevent false positives when users have legitimate external accessories connected
+
+```dart
+// Only detect software-simulated locations, ignore external accessories
+bool isFakeLocation = await DetectFakeLocation().detectFakeLocation(
+  ignoreExternalAccessory: true,
+);
 ```
 
 ## Example
@@ -84,32 +107,50 @@ class MyHomePage extends StatelessWidget {
         title: Text('My App'),
       ),
       body: Center(
-        child: ElevatedButton(
-          child: Text('Detect Fake Location'),
-          onPressed: () async {
-            bool isFakeLocation =
-                await DetectFakeLocation().detectFakeLocation();
-            showDialog(
-              context: context,
-              builder: (BuildContext context) {
-                return AlertDialog(
-                  title: Text('Fake Location Detected'),
-                  content: Text(
-                      'The user is${isFakeLocation ? '' : ' not'} using a fake location.'),
-                  actions: <Widget>[
-                    TextButton(
-                      child: Text('OK'),
-                      onPressed: () {
-                        Navigator.of(context).pop();
-                      },
-                    ),
-                  ],
-                );
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            ElevatedButton(
+              child: Text('Detect Fake Location (Standard)'),
+              onPressed: () async {
+                bool isFakeLocation =
+                    await DetectFakeLocation().detectFakeLocation();
+                _showResult(context, isFakeLocation, 'Standard Mode');
               },
-            );
-          },
+            ),
+            SizedBox(height: 20),
+            ElevatedButton(
+              child: Text('Detect Fake Location (Ignore External Accessory)'),
+              onPressed: () async {
+                bool isFakeLocation = await DetectFakeLocation()
+                    .detectFakeLocation(ignoreExternalAccessory: true);
+                _showResult(context, isFakeLocation, 'Ignore External Accessory Mode');
+              },
+            ),
+          ],
         ),
       ),
+    );
+  }
+
+  void _showResult(BuildContext context, bool isFakeLocation, String mode) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text('Fake Location Detection Result'),
+          content: Text(
+              'Mode: $mode\nThe user is${isFakeLocation ? '' : ' not'} using a fake location.'),
+          actions: <Widget>[
+            TextButton(
+              child: Text('OK'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
     );
   }
 }
