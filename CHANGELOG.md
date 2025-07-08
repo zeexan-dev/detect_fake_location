@@ -1,3 +1,12 @@
+## 2.3.0
+
+* Added `ignoreExternalAccessory` configuration parameter for iOS
+* Allows users to disable the `isProducedByAccessory` check to prevent false positives from legitimate external accessories (CarPlay, external GPS devices, etc.)
+* Maintains full backward compatibility - existing code continues to work without changes
+* Enhanced example app to demonstrate both detection modes
+* Comprehensive test coverage for new functionality
+* Updated documentation with usage examples and configuration options
+
 ## 2.2.0+1
 
 * Documentation updated
