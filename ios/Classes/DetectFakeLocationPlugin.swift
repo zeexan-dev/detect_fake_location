@@ -3,47 +3,45 @@ import UIKit
 import CoreLocation
 
 public class DetectFakeLocationPlugin: NSObject, FlutterPlugin {
+
     public static func register(with registrar: FlutterPluginRegistrar) {
         let channel = FlutterMethodChannel(name: "detect_fake_location", binaryMessenger: registrar.messenger())
         let instance = DetectFakeLocationPlugin()
         registrar.addMethodCallDelegate(instance, channel: channel)
     }
-    
+
     public func handle(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
 
-        if call.method == "detectFakeLocation"{
+        if call.method == "detectFakeLocation" {
 
             // Extract configuration parameters from the method call
             let arguments = call.arguments as? [String: Any]
             let ignoreExternalAccessory = arguments?["ignoreExternalAccessory"] as? Bool ?? false
 
             let locationManager = CLLocationManager()
+
             if #available(iOS 15.0, *) {
-                // use UICollectionViewCompositionalLayout
-                let isLocationSimulated = locationManager.location?.sourceInformation?.isSimulatedBySoftware ?? false
-                let isProducedByAccess = locationManager.location?.sourceInformation?.isProducedByAccessory ?? false
+                // Safe on iOS 15+
+                if let sourceInfo = locationManager.location?.sourceInformation {
+                    var isFakeLocation = false
 
-                let info = CLLocationSourceInformation(softwareSimulationState: isLocationSimulated, andExternalAccessoryState: isProducedByAccess)
+                    // Check if simulated by software
+                    if sourceInfo.isSimulatedBySoftware {
+                        isFakeLocation = true
+                    }
 
-                // Check for fake location based on configuration
-                var isFakeLocation = false
+                    // Check if produced by external accessory, only if not ignored
+                    if !ignoreExternalAccessory && sourceInfo.isProducedByAccessory {
+                        isFakeLocation = true
+                    }
 
-                // Always check for software simulation
-                if info.isSimulatedBySoftware == true {
-                    isFakeLocation = true
+                    result(isFakeLocation)
+                    return
                 }
-
-                // Conditionally check for external accessory based on configuration
-                if !ignoreExternalAccessory && info.isProducedByAccessory == true {
-                    isFakeLocation = true
-                }
-
-                result(isFakeLocation)
-            }
-            else{
-                result(false)
             }
 
+            // Fallback for iOS <15 or when location/sourceInformation is nil
+            result(false)
         }
     }
 }

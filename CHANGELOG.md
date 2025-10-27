@@ -1,3 +1,7 @@
+## 2.3.1
+### Changed
+* Updated permission_handler dependency to ^12.0.1 for compatibility.
+
 ## 2.3.0
 
 * Added `ignoreExternalAccessory` configuration parameter for iOS
