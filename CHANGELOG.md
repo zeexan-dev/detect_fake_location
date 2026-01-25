@@ -1,44 +1,52 @@
+## 2.3.2
+
+Updated permission_handler dependency to ^12.0.1
+
 ## 2.3.1
+
 Bumped Android compileSdkVersion from 31 to 34
 
 ## 2.3.0
 
-* Added `ignoreExternalAccessory` configuration parameter for iOS
-* Allows users to disable the `isProducedByAccessory` check to prevent false positives from legitimate external accessories (CarPlay, external GPS devices, etc.)
-* Maintains full backward compatibility - existing code continues to work without changes
-* Enhanced example app to demonstrate both detection modes
-* Comprehensive test coverage for new functionality
-* Updated documentation with usage examples and configuration options
+- Added `ignoreExternalAccessory` configuration parameter for iOS
+- Allows users to disable the `isProducedByAccessory` check to prevent false positives from legitimate external accessories (CarPlay, external GPS devices, etc.)
+- Maintains full backward compatibility - existing code continues to work without changes
+- Enhanced example app to demonstrate both detection modes
+- Comprehensive test coverage for new functionality
+- Updated documentation with usage examples and configuration options
 
 ## 2.2.0+1
 
-* Documentation updated
+- Documentation updated
+
 ## 2.2.0
 
-* Issue fixed for android 31 and above
+- Issue fixed for android 31 and above
+
 ## 2.1.0
 
-* Namespace issue fixed
+- Namespace issue fixed
 
 ## 2.0.0
 
-* Issue fixed for android 31 and above
+- Issue fixed for android 31 and above
+
 ## 1.0.2+1
 
-* Readme updated
+- Readme updated
+
 ## 1.0.2
 
-* Readme updated
+- Readme updated
+
 ## 1.0.0
 
-* Update
+- Update
 
 ## 0.0.2
 
-* Documentation update
+- Documentation update
 
 ## 0.0.1
 
-* Fake(Mock or Simulated) location detection
-
-
+- Fake(Mock or Simulated) location detection
