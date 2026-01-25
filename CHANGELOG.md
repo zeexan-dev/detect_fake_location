@@ -1,3 +1,6 @@
+## 2.3.1
+Bumped Android compileSdkVersion from 31 to 34
+
 ## 2.3.0
 
 * Added `ignoreExternalAccessory` configuration parameter for iOS
