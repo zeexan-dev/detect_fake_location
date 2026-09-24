@@ -1,3 +1,7 @@
+## 2.3.3
+
+Relax `permission_handler` dependency constraint from `^12.0.1` to `>=12.0.1 <15.0.0`.
+
 ## 2.3.2
 
 Updated permission_handler dependency to ^12.0.1
